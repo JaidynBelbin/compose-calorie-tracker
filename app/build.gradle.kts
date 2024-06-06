@@ -1,18 +1,20 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("dagger.hilt.android.plugin")
+    id("kotlin-kapt")
 }
 
 android {
-    namespace = "com.example.calorietracker"
-    compileSdk = 34
+    namespace = ProjectConfig.APP_ID
+    compileSdk = ProjectConfig.COMPILE_SDK
 
     defaultConfig {
-        applicationId = "com.example.calorietracker"
-        minSdk = 24
-        targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
+        applicationId = ProjectConfig.APP_ID
+        minSdk = ProjectConfig.MIN_SDK
+        targetSdk = ProjectConfig.TARGET_SDK
+        versionCode = ProjectConfig.VERSION_CODE
+        versionName = ProjectConfig.VERSION_NAME
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -40,27 +42,65 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.1"
-    }
-    packaging {
-        resources {
-            excludes += "/META-INF/{AL2.0,LGPL2.1}"
-        }
+        kotlinCompilerExtensionVersion = Compose.COMPOSE_COMPILER_VERSION
     }
 }
 
 dependencies {
-    implementation("androidx.core:core-ktx:1.10.1")
-    implementation("androidx.appcompat:appcompat:1.6.1")
-    implementation("com.google.android.material:material:1.9.0")
-    implementation("androidx.compose.ui:ui:1.5.0")
-    implementation("androidx.compose.material:material:1.5.0")
-    implementation("androidx.compose.ui:ui-tooling-preview:1.5.0")
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.1")
-    implementation("androidx.activity:activity-compose:1.7.2")
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.5")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
-    androidTestImplementation("androidx.compose.ui:ui-test-junit4:1.5.0")
-    debugImplementation("androidx.compose.ui:ui-tooling:1.5.0")
+    implementation(Compose.COMPILER)
+    implementation(Compose.UI)
+    implementation(Compose.UI_TOOLING_PREVIEW)
+    implementation(Compose.HILT_NAVIGATION_COMPOSE)
+    implementation(Compose.MATERIAL)
+    implementation(Compose.RUNTIME)
+    implementation(Compose.NAVIGATION)
+    implementation(Compose.VIEWMODEL_COMPOSE)
+    implementation(Compose.ACTIVITY_COMPOSE)
+
+    implementation(DaggerHilt.HILT_ANDROID)
+    kapt(DaggerHilt.HILT_COMPILER)
+
+    implementation(project(Modules.CORE))
+    implementation(project(Modules.ONBOARDING_PRESENTATION))
+    implementation(project(Modules.ONBOARDING_DOMAIN))
+    implementation(project(Modules.TRACKER_PRESENTATION))
+    implementation(project(Modules.TRACKER_DOMAIN))
+    implementation(project(Modules.TRACKER_DATA))
+
+    implementation(AndroidX.CORE_KTX)
+    implementation(AndroidX.APP_COMPAT)
+
+    implementation(Coil.COIL_COMPOSE)
+
+    implementation(Google.MATERIAL)
+
+    implementation(Retrofit.OKHTTP)
+    implementation(Retrofit.RETROFIT)
+    implementation(Retrofit.OKHTTP_LOGGING_INTERCEPTOR)
+    implementation(Retrofit.MOSHI_CONVERTER)
+
+    kapt(Room.ROOM_COMPILER)
+    implementation(Room.ROOM_KTX)
+    implementation(Room.ROOM_RUNTIME)
+
+    testImplementation(Testing.JUNIT4)
+    testImplementation(Testing.JUNIT_ANDROID_EXT)
+    testImplementation(Testing.TRUTH)
+    testImplementation(Testing.COROUTINES)
+    testImplementation(Testing.TURBINE)
+    testImplementation(Testing.COMPOSE_UI_TEST)
+    testImplementation(Testing.MOCKK)
+    testImplementation(Testing.MOCK_WEB_SERVER)
+
+    androidTestImplementation(Testing.JUNIT4)
+    androidTestImplementation(Testing.JUNIT_ANDROID_EXT)
+    androidTestImplementation(Testing.TRUTH)
+    androidTestImplementation(Testing.COROUTINES)
+    androidTestImplementation(Testing.TURBINE)
+    androidTestImplementation(Testing.COMPOSE_UI_TEST)
+    androidTestImplementation(Testing.MOCKK_ANDROID)
+    androidTestImplementation(Testing.MOCK_WEB_SERVER)
+    androidTestImplementation(Testing.HILT_TESTING)
+    kaptAndroidTest(DaggerHilt.HILT_COMPILER)
+    androidTestImplementation(Testing.TEST_RUNNER)
 }

@@ -1,0 +1,59 @@
+// Defines the shared gradle config that all our modules will use, so we only need to keep this updated in one place.
+
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-parcelize'
+
+android {
+    compileSdk ProjectConfig.COMPILE_SDK
+
+    defaultConfig {
+        minSdk ProjectConfig.MIN_SDK
+        targetSdk ProjectConfig.TARGET_SDK
+        versionCode ProjectConfig.VERSION_CODE
+        versionName ProjectConfig.VERSION_NAME
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        coreLibraryDesugaringEnabled true
+
+        sourceCompatibility JavaVersion.VERSION_18
+        targetCompatibility JavaVersion.VERSION_18
+    }
+    kotlinOptions {
+        jvmTarget = '18'
+    }
+}
+
+dependencies {
+    kapt DaggerHilt.HILT_COMPILER
+    implementation DaggerHilt.HILT_ANDROID
+
+    testImplementation Testing.JUNIT4
+    testImplementation Testing.JUNIT_ANDROID_EXT
+    testImplementation Testing.TRUTH
+    testImplementation Testing.COROUTINES
+    testImplementation Testing.TURBINE
+    testImplementation Testing.COMPOSE_UI_TEST
+    testImplementation Testing.MOCKK
+    testImplementation Testing.MOCK_WEB_SERVER
+
+    androidTestImplementation Testing.JUNIT4
+    androidTestImplementation Testing.JUNIT_ANDROID_EXT
+    androidTestImplementation Testing.TRUTH
+    androidTestImplementation Testing.COROUTINES
+    androidTestImplementation Testing.TURBINE
+    androidTestImplementation Testing.COMPOSE_UI_TEST
+    androidTestImplementation Testing.MOCKK
+    androidTestImplementation Testing.MOCK_WEB_SERVER
+    androidTestImplementation Testing.HILT_TESTING
+}
