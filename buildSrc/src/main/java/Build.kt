@@ -1,5 +1,5 @@
 object Build {
-    private const val ANDROID_BUILD_TOOLS_VERSION = "7.0.4"
+    private const val ANDROID_BUILD_TOOLS_VERSION = "8.4.0"
     const val ANDROID_BUILD_TOOLS = "com.android.tools.build:gradle:$ANDROID_BUILD_TOOLS_VERSION"
 
     const val KOTLIN_GRADLE_PLUGIN = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Kotlin.VERSION}"

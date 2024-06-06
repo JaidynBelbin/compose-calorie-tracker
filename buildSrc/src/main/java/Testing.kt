@@ -11,7 +11,7 @@ object Testing {
     private const val TRUTH_VERSION = "1.1.3"
     const val TRUTH = "com.google.truth:truth:$TRUTH_VERSION"
 
-    private const val MOCKK_VERSION = "1.10.0"
+    private const val MOCKK_VERSION = "1.13.11"
     const val MOCKK = "io.mockk:mockk:$MOCKK_VERSION"
     const val MOCKK_ANDROID = "io.mockk:mockk-android:$MOCKK_VERSION"
 
