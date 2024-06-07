@@ -7,13 +7,5 @@ plugins {
 apply(from = "$rootDir/compose-module.gradle")
 
 android {
-    namespace = "com.example.onboarding.presentation"
+    namespace = "com.example.core_ui"
 }
-
-dependencies {
-    implementation(project(Modules.CORE))
-    implementation(project(Modules.CORE_UI))
-    implementation(project(Modules.ONBOARDING_DOMAIN))
-}
-
-

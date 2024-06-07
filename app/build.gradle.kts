@@ -7,7 +7,7 @@ plugins {
 
 android {
     namespace = ProjectConfig.APP_ID
-    compileSdk = ProjectConfig.COMPILE_SDK
+    compileSdk = 34
 
     defaultConfig {
         applicationId = ProjectConfig.APP_ID
@@ -68,6 +68,7 @@ dependencies {
     kapt(DaggerHilt.HILT_COMPILER)
 
     implementation(project(Modules.CORE))
+    implementation(project(Modules.CORE_UI))
     implementation(project(Modules.ONBOARDING_PRESENTATION))
     implementation(project(Modules.ONBOARDING_DOMAIN))
     implementation(project(Modules.TRACKER_PRESENTATION))
