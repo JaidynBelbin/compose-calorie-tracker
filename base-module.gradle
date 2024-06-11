@@ -6,7 +6,7 @@ apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-parcelize'
 
 android {
-    compileSdk ProjectConfig.COMPILE_SDK
+    compileSdk 34
 
     defaultConfig {
         minSdk ProjectConfig.MIN_SDK

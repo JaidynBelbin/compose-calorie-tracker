@@ -7,15 +7,17 @@ object Compose {
     const val RUNTIME = "androidx.compose.runtime:runtime:$COMPOSE_VERSION"
     const val COMPILER = "androidx.compose.compiler:compiler:$COMPOSE_COMPILER_VERSION"
 
-    private const val NAVIGATION_VERSION = "2.4.0-beta02"
+    private const val NAVIGATION_VERSION = "2.7.7"
     const val NAVIGATION = "androidx.navigation:navigation-compose:$NAVIGATION_VERSION"
 
-    private const val HILT_NAVIGATION_COMPOSE_VERSION = "1.0.0-beta01"
-    const val HILT_NAVIGATION_COMPOSE = "androidx.hilt:hilt-navigation-compose:$HILT_NAVIGATION_COMPOSE_VERSION"
+    private const val HILT_NAVIGATION_COMPOSE_VERSION = "1.2.0"
+    const val HILT_NAVIGATION_COMPOSE =
+        "androidx.hilt:hilt-navigation-compose:$HILT_NAVIGATION_COMPOSE_VERSION"
 
-    private const val ACTIVITY_COMPOSE_VERSION = "1.4.0"
+    private const val ACTIVITY_COMPOSE_VERSION = "1.9.0"
     const val ACTIVITY_COMPOSE = "androidx.activity:activity-compose:$ACTIVITY_COMPOSE_VERSION"
 
-    private const val LIFECYCLE_VERSION = "2.4.0"
-    const val VIEWMODEL_COMPOSE = "androidx.lifecycle:lifecycle-viewmodel-compose:$LIFECYCLE_VERSION"
+    private const val LIFECYCLE_VERSION = "2.8.1"
+    const val VIEWMODEL_COMPOSE =
+        "androidx.lifecycle:lifecycle-viewmodel-compose:$LIFECYCLE_VERSION"
 }

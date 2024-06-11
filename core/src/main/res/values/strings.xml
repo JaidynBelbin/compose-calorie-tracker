@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Calorie Tracker</string>
+    <string name="welcome_text">Welcome! Let\'s find a bit more about you and your fitness goals.</string>
+    <string name="next">Next</string>
+    <string name="whats_your_gender">What\'s your gender?</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+</resources>
